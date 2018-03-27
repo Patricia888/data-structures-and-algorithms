@@ -1,5 +1,4 @@
 {
   "binary_search/test_binary_search.py": true,
-  "largest_product/test_largest_product.py": true,
-  "shift_array/test_shif_array.py": true
+  "largest_product/test_largest_product.py": true
 }
