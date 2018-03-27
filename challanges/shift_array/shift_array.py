@@ -1,6 +1,6 @@
 def insertShiftArray(given_array, added_value):
     new_array = []
-    
+
     array_midpoint = len(given_array) // 2
     for i in range(len(given_array) + 1):
         if i < array_midpoint:
