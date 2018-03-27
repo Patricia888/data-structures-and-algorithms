@@ -1,5 +1,0 @@
-[
-  "shift_array/test_shif_array.py::test_insertShiftArray_odd",
-  "shift_array/test_shif_array.py::test_insertShiftArray_with_even",
-  "shift_array/test_shif_array.py::test_insertShiftArray_with_empty"
-]
