@@ -1,1 +1,4 @@
-[]
+[
+  "test_binary_search.py::test_BinarySearch_example_one",
+  "test_binary_search.py::test_BinarySearch_example_two"
+]
