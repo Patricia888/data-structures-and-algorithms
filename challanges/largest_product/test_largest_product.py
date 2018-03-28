@@ -1,4 +1,4 @@
-from largest_product import largest_product
+from .largest_product import largest_product
 import pytest
 
 
