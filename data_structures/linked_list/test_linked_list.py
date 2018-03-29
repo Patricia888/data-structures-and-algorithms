@@ -1,5 +1,5 @@
 import pytest
-from linked_list import LinkedList as LL
+from .linked_list import LinkedList as LL
 
 
 def test_insert_first_node(empty_ll):
@@ -23,7 +23,7 @@ def test_find_none(empty_ll):
 
 
 def test_find(small_ll):
-    assert small_ll.find(1) is True
+    assert small_ll.find(2) is True
 
 
 def test_not_found(small_ll):

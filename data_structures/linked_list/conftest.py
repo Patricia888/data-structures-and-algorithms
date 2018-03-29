@@ -1,5 +1,5 @@
 import pytest
-from linked_list import LinkedList as LL
+from .linked_list import LinkedList as LL
 # from snakes_cafe import snakescafe as sc
 
 
