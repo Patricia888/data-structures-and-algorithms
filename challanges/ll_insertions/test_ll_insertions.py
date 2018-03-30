@@ -43,3 +43,48 @@ def test_check_valid_iterable():
         LL(2)
 
     assert str(err.value) == 'Invalid iterable'
+
+
+def test_append_to_end_empty(empty_ll):
+    empty_ll.append(2)
+    assert empty_ll.head.val == 2
+
+
+def test_append_to_end(small_ll):
+    small_ll.append(5)
+    assert len(small_ll) == 5
+    assert small_ll.head._next._next._next._next.val == 5
+
+
+def test_insert_after(small_ll):
+    small_ll.insert_after(2, 8)
+    assert len(small_ll) == 5
+    assert small_ll.head._next._next.val == 8
+
+
+def test_insert_after_end(small_ll):
+    small_ll.insert_after(4, 9)
+    assert len(small_ll) == 5
+    assert small_ll.head._next._next._next._next.val == 9
+
+
+def test_insert_after_invalid(small_ll):
+    small_ll.insert_after(6, 9)
+    assert len(small_ll) == 4
+
+
+def test_insert_before(small_ll):
+    small_ll.insert_before(3, 6)
+    assert len(small_ll) == 5
+    assert small_ll.head._next._next.val == 6
+
+
+def test_insert_before_head(small_ll):
+    small_ll.insert_before(1, 7)
+    assert len(small_ll) == 5
+    assert small_ll.head.val == 7
+
+
+def test_insert_before_invalid(small_ll):
+    small_ll.insert_before(6, 7)
+    assert len(small_ll) == 4

@@ -16,7 +16,6 @@ class LinkedList:
             self.insert(item)
 
     def __repr__(self):
-        # assuming head will have a val
         return '<head> => {}'.format(self.head.val)
 
     def __str__(self):
