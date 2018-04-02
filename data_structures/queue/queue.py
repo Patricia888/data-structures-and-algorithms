@@ -33,4 +33,8 @@ class Queue:
         self.back = Node(val, self.back)
 
     def dequeue(self):
-        pass
+        current = self.back
+        while current._next:
+            current = current._next
+
+        current.next = None
