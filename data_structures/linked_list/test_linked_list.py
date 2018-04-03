@@ -38,6 +38,12 @@ def test_length(small_ll):
     assert len(small_ll) == 4
 
 
+def test_len_increases(empty_ll):
+    assert len(empty_ll) == 0
+    empty_ll.insert(1)
+    assert len(empty_ll) == 1
+
+
 def test_check_valid_iterable():
     with pytest.raises(TypeError) as err:
         LL(2)
