@@ -12,6 +12,7 @@ def test_insert_two_nodes(empty_ll):
     empty_ll.insert(2)
     empty_ll.insert(1)
     assert empty_ll.head.val == 1
+    assert empty_ll.head._next.val == 2
 
 
 def test_insert_iterable():
