@@ -21,3 +21,11 @@ def test_gives_true_positive():
 
 def test_gives_true_negative():
     assert multi_bracket_validation('){}[]([') == False
+
+
+def test_characters_inside_the_brackets_still_true():
+    assert multi_bracket_validation('{[Codefellows}]') == True
+
+
+def test_characters_inside_the_brackets_unbalanced_false():
+    assert multi_bracket_validation('this(is{not]ba()(lanc{{[ed') == False
