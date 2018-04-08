@@ -88,4 +88,11 @@ class LinkedList:
         return current.val
 
     def has_loop(self):
-        pass
+        a = self.head
+        b = self.head
+        while a and b and b._next:
+            a = a._next
+            b = b._next._next
+            if a is b:
+                return True
+        return False

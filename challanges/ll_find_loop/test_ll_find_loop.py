@@ -173,3 +173,21 @@ def test_kth_from_end_invalid(small_ll):
 #     ml(empty_ll, short_ll)
 #     assert short_ll.head.val == 5
 #     assert short_ll.head._next.val == 6
+
+
+def test_has_loop_false(small_ll):
+    assert small_ll.has_loop() is False
+
+
+def test_has_loop_true(small_ll):
+    small_ll.head._next._next._next = small_ll.head
+    assert small_ll.has_loop() is True
+
+
+def test_has_loop_true_longer_and_not_head(long_ll):
+    long_ll.head._next._next._next = long_ll.head._next
+    assert long_ll.has_loop() is True
+
+
+def test_has_loop_long_ll_false(long_ll):
+    assert long_ll.has_loop() is False
