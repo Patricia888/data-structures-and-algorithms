@@ -20,8 +20,6 @@ def multi_bracket_validation(stringInput):
             sharkTooth_counter += 1
         elif letter is '}':
             sharkTooth_counter -= 1
-        else:
-            break
 
     final_counter = parenthese_counter + sharkTooth_counter + square_counter
 
