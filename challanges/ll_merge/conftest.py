@@ -13,10 +13,10 @@ def small_ll():
 
 
 @pytest.fixture
-def merge_small_ll():
-    return LL([8, 9, 10, 11])
+def short_ll():
+    return LL([5, 6, 7, 8])
 
 
 @pytest.fixture
-def merge_long_ll():
-    return LL([12, 13, 14, 15, 16, 167])
+def long_ll():
+    return LL([11, 12, 13, 14, 15, 16])
