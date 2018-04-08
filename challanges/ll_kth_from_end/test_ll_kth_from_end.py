@@ -94,3 +94,24 @@ def test_insert_before_head(small_ll):
 def test_insert_before_invalid(small_ll):
     small_ll.insert_before(6, 7)
     assert len(small_ll) == 4
+
+
+def test_kth_from_end_last(small_ll):
+    small_ll.kth_from_end(0)
+    assert small_ll.head._next._next._next.val == 4
+
+
+def test_kth_from_end_second(small_ll):
+    small_ll.kth_from_end(2)
+    assert small_ll.head._next.val == 2
+
+
+def test_kth_from_end_exception(small_ll):
+    with pytest.raises(AttributeError):
+        small_ll.kth_from_end(6)
+        small_ll.kth_from_end(-1)
+
+
+def test_kth_from_end_invalid(small_ll):
+    with pytest.raises(TypeError):
+        small_ll.kth_from_end('a')
