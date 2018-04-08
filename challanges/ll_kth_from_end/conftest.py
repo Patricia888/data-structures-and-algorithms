@@ -1,6 +1,5 @@
 import pytest
 from .ll_kth_from_end import LinkedList as LL
-# from snakes_cafe import snakescafe as sc
 
 
 @pytest.fixture

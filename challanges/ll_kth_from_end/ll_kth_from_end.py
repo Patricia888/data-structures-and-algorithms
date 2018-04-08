@@ -11,7 +11,7 @@ class LinkedList:
         if type(iterable) is not list:
             raise TypeError('Invalid iterable')
 
-        for item in reversed(iter):
+        for item in reversed(iterable):
                 self.insert(item)
 
     def __repr__(self):
@@ -76,3 +76,13 @@ class LinkedList:
                 self._size += 1
                 break
             current = current._next
+
+    def kth_from_end(self, k):
+        if len(self) - k < 0:
+            raise AttributeError
+            # can't return a node that doesn't exist
+
+        current = self.head
+        for i in range(len(self) - k - 1):
+            current = current._next
+        return current.val
