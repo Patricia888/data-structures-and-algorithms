@@ -18,5 +18,22 @@ class Stack:
         return f'Top of stack is {self.top.val}'
 
     def __len__(self):
-        """Return the size of the stack"""
         return self._size
+
+    def push(self, val):
+        try:
+            node = Node(val, self.top)
+        except TypeError:
+            return self.top
+        self.top = node
+        self._size += 1
+        return self.top
+
+    def pop(self):
+        removed_node = self.top
+        self.top = self.top._next
+        self._size -= 1
+        return removed_node.val
+
+    def peek(self):
+        return self.top.val
