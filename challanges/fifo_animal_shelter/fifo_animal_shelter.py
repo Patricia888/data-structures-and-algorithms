@@ -26,8 +26,7 @@ class AnimalShelter:
         self.back = node
         return None
 
-
-def dequeue(self, pref=None):
+    def dequeue(self, pref=None):
         if self._size == 0:
             raise IndexError('animal shelter is empty')
 
