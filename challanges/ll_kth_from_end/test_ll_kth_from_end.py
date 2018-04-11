@@ -1,5 +1,5 @@
 import pytest
-from .ll_insertions import LinkedList as LL
+from .ll_kth_from_end import LinkedList as LL
 
 
 def test_insert_first_node(empty_ll):
@@ -12,7 +12,6 @@ def test_insert_two_nodes(empty_ll):
     empty_ll.insert(2)
     empty_ll.insert(1)
     assert empty_ll.head.val == 1
-    assert empty_ll.head._next.val == 2
 
 
 def test_insert_iterable():
@@ -95,3 +94,24 @@ def test_insert_before_head(small_ll):
 def test_insert_before_invalid(small_ll):
     small_ll.insert_before(6, 7)
     assert len(small_ll) == 4
+
+
+def test_kth_from_end_last(small_ll):
+    small_ll.kth_from_end(0)
+    assert small_ll.head._next._next._next.val == 4
+
+
+def test_kth_from_end_second(small_ll):
+    small_ll.kth_from_end(2)
+    assert small_ll.head._next.val == 2
+
+
+def test_kth_from_end_exception(small_ll):
+    with pytest.raises(AttributeError):
+        small_ll.kth_from_end(6)
+        small_ll.kth_from_end(-1)
+
+
+def test_kth_from_end_invalid(small_ll):
+    with pytest.raises(TypeError):
+        small_ll.kth_from_end('a')

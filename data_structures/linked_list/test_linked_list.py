@@ -12,6 +12,7 @@ def test_insert_two_nodes(empty_ll):
     empty_ll.insert(2)
     empty_ll.insert(1)
     assert empty_ll.head.val == 1
+    assert empty_ll.head._next.val == 2
 
 
 def test_insert_iterable():
@@ -36,6 +37,12 @@ def test_empty_list(empty_ll):
 
 def test_length(small_ll):
     assert len(small_ll) == 4
+
+
+def test_len_increases(empty_ll):
+    assert len(empty_ll) == 0
+    empty_ll.insert(1)
+    assert len(empty_ll) == 1
 
 
 def test_check_valid_iterable():

@@ -11,7 +11,7 @@ class LinkedList:
         self._size = 0  # or length
         if type(iter) is not list:
             raise TypeError('Invalid iterable')
-        
+
         for item in reversed(iter):
             self.insert(item)
 
