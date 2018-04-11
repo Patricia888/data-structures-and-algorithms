@@ -1,5 +1,5 @@
 import pytest
-from fifo_animal_shelter import AnimalShelter
+from . import AnimalShelter
 
 
 @pytest.fixture
