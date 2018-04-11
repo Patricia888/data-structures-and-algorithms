@@ -34,6 +34,7 @@ class Queue:
         self.back = node
         return self.front
 
+
     def dequeue(self):
         if self._size == 0:
             raise IndexError('List is empty')
