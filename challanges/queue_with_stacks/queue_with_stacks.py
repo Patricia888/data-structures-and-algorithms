@@ -14,7 +14,27 @@ class Queue:
             self.enqueue(item)
 
     def enqueue(self, val):
-        """put val in queue"""
+        if val is None:
+            raise TypeError('Invalid value')
+        self.stack_one.push(val)
+        self._size += 1
+        return self
 
     def dequeue(self):
-        """take val out of queue"""
+        if len(self.stack_one) == 0:
+            raise IndexError('Empty')
+
+        current1 = self.stack_one.top
+        while current1:
+            self.stack_two.push(self.stack_one.pop())
+            current1 = current1._next
+
+        removed = self.stack_two.pop()
+
+        current2 = self.stack_two.top
+        while current2:
+            self.stack_one.push(self.stack_two.pop())
+            current2 = current2._next
+
+        self._size -= 1
+        return removed

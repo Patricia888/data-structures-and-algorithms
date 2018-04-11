@@ -8,3 +8,7 @@ def test_make_queue():
     assert q.stack_one._size == 4
     assert q._size == 4
 
+
+def test_enqueue_single(empty_queue):
+    assert empty_queue.enqueue(5).stack_one.top.val == 5
+    assert empty_queue._size == 1
