@@ -42,9 +42,15 @@ def test_instantiate_with_iterable():
     assert animals.back.val == 'cat'
 
 
-def test_enqueue(empty_queue):
+def test_enqueue_dog(empty_queue):
     empty_queue.enqueue('dog')
     assert empty_queue.front.val == 'dog'
+    assert empty_queue._size == 1
+
+
+def test_enqueue_cat(empty_queue):
+    empty_queue.enqueue('cat')
+    assert empty_queue.front.val == 'cat'
     assert empty_queue._size == 1
 
 
