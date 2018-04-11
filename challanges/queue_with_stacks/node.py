@@ -4,7 +4,7 @@ class Node:
         self.val = val
         self._next = next
         if val is None:
-            raise TypeError('Must pass a value')
+            raise TypeError('pass a value!')
 
     def __repr__(self):
         return '{val}'.format(val=self.val)

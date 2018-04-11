@@ -10,3 +10,8 @@ def empty_queue():
 @pytest.fixture
 def short_queue():
     return Queue([1, 2, 3, 4])
+
+
+@pytest.fixture
+def long_queue():
+    return Queue([10, 20, 30, 40, 50, 60, 70, 80])
