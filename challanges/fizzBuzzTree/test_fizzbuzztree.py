@@ -1,4 +1,29 @@
-from fizzbuzztree import BST, fizzbuzztree
+from .fizzbuzztree import BST
+from .fizzbuzztree import fizzbuzztree
+from .fizzbuzztree import Node
+import pytest
+
+
+def test_create_node():
+    node = Node(5)
+    assert node.left is None
+    assert node.right is None
+
+
+def test_make_empty_bst():
+    empty_bst = BST()
+    assert empty_bst.root is None
+
+
+def test_fizzbuzz_tree_basic():
+    basic_bst = BST([1, 2, 3])
+    assert basic_bst.root.val == 1
+    assert basic_bst.root.right.val == 2
+    assert basic_bst.root.right.right.val == 3
+    fizzbuzztree(basic_bst)
+    assert basic_bst.root.val == 1
+    assert basic_bst.root.right.val == 2
+    assert basic_bst.root.right.right.val == 'fizz'
 
 
 def test_fizzbuzztree_balanced():

@@ -12,7 +12,7 @@ class Node:
 
 
 class BST:
-    def __init__(self):
+    def __init__(self, iterable=[]):
         self.root = None
         if type(iterable) is not list:
             raise TypeError
@@ -97,4 +97,17 @@ class BST:
 
 
 def fizzbuzztree(tree):
+    '''conduct fizzbuzz on all appropriate tree nodes'''
+    tree.in_order(replace)
+    return tree
 
+
+def replace(node):
+    if type(node.val) is int:
+        if node.val % 3 == 0 and node.val % 5 == 0:
+            node.val = 'fizz buzz'
+        elif node.val % 3 == 0:
+            node.val = 'fizz'
+        elif node.val % 5 == 0:
+            node.val = 'buzz'
+    return
