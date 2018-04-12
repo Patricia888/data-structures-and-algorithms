@@ -5,7 +5,7 @@ class Node:
         self.left = None
 
     def __repr__(self):
-        return #
+        return
             self.val, self.right.val, self.left.val)
 
     def __str__(self):
