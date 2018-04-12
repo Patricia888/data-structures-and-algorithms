@@ -14,11 +14,15 @@ class Node:
 class BST:
     def __init__(self):
         self.root = None
+        if type(iterable) is not list:
+            raise TypeError
+        for item in iterable:
+            self.insert(item)
 
-    def __repr__():
+    def __repr__(self):
         return '<BST Root {}>'.format(self.root.val)
 
-    def __str__():
+    def __str__(self):
         return self.root.val
 
     def in_order(self, operation):
@@ -29,9 +33,6 @@ class BST:
             if node.left is not None:
                 _walk(node.left)
 
-            # in order, operation goes here
-            # this is our lambda
-            # can call it anything
             operation(node)
 
             if node.right is not None:
@@ -62,12 +63,39 @@ class BST:
                     current.left = node
                     break
 
-
-            # else:
-
-
         return node
+
+    def pre_order(self, operation):
+        def _walk(node=None):
+            if node is None:
+                return
+
+            operation(node)
+
+            if node.left is not None:
+                _walk(node.left)
+
+            if node.right is not None:
+                _walk(node.right)
+
+        _walk(self.root)
+
+    def post_order(self, operation):
+        def _walk(node=None):
+            if node is None:
+                return
+
+            if node.left is not None:
+                _walk(node.left)
+
+            if node.right is not None:
+                _walk(node.right)
+
+            operation(node)
+
+        _walk(self.root)
 
 
 def fizzbuzztree(tree):
     # convert nodes to fizzbuzz
+
