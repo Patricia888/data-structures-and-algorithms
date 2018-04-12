@@ -97,5 +97,4 @@ class BST:
 
 
 def fizzbuzztree(tree):
-    # convert nodes to fizzbuzz
 
