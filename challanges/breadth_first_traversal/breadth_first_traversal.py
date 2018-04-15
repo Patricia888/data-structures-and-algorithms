@@ -1,3 +1,6 @@
+from .queue import Queue
+
+
 class Node:
     """create a Node"""
     def __init__(self, val):
@@ -13,7 +16,7 @@ class Node:
 
 
 class BST:
-    """create a binary search tree data structure"""
+    """create a binary search tree"""
     def __init__(self, iterable=[]):
         self.root = None
         if type(iterable) is not list:
@@ -26,3 +29,28 @@ class BST:
 
     def __str__(self):
         return self.root.val
+
+    def insert(self, val):
+        """insert node"""
+        node = Node(val)
+        current = self.root
+
+        if self.root is None:
+            self.root = node
+            return node
+
+        while current:
+            if val >= current.val:
+                if current.right is not None:
+                    current = current.right
+                else:
+                    current.right = node
+                    break
+            elif val < current.val:
+                if current.left is not None:
+                    current = current.left
+                else:
+                    current.left = node
+                    break
+
+        return node
