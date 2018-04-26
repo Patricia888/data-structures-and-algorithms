@@ -1,5 +1,14 @@
-# write a k-ary tree
+from queue import Queue
 
-# write a function that takes in k-ary tree
-# have it utilize 2 queues
-# print node in order, with spaces between the nodes of differing levels
+
+class Node:  # pragma: no cover
+    """create a Node for a K-ary tree"""
+    def __init__(self, val=None):
+        self.val = val
+        self.children = []
+
+    def __repr__(self):
+        return 'Node Val: {}'.format(self.val)
+
+    def __str__(self):
+        return f'Node value is {self.val}'
