@@ -9,6 +9,14 @@ def test_value_is_not_a_string():
     pass
 
 
+def test_hash_table_without_linked_list():
+    test = "cat"
+
+
+def test_hash_key():
+    pass
+
+
 def test_set_a_value():
     pass
 

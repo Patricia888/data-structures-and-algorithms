@@ -1,4 +1,5 @@
 from functools import reduce
+from .linked_list import Node, LinkedList
 
 
 class HashTable:
@@ -12,24 +13,13 @@ class HashTable:
         if type(key) is not str:
             raise TypeError
 
-        # expecting key to be a str
-        # convert to unicode
-            # iterate through key, and convert each char to ascii char code
-        # add, divide by # of buckets
-            # sum all char codes for a total int value
-            # return => mod total by number of buckets
-        # assign to bucket based on remainder
-
         sum = 0
         for char in key:
             # ord gets the integer value of each character
             sum += ord(char)
         return sum % self.buckets
 
-        # return reduce(lambda a, b: a + ord(b), list(key), 0) % self.buckets
-
     def set(self, key, val):
-        # hash the key, get a location for the bucket to insert into
         # DO LATER: traverse the linked list
         # set val into bucket
 
@@ -41,9 +31,13 @@ class HashTable:
             # 'title': 'zzz',
         # }
 
-        # idx = self.hash_key(key)
-        # self.buckets[idx] = value
-        self.buckets[self.hash_key(key)] = val
+
+        # if no value is in that particular bucket, no worries about collisions
+        if self.buckets is None:
+            self.buckets[self.hash_key(key)] = val
+
+        else:
+            # create a linked list for the bucket to deal with collisions
 
     def get(self, key):
         return self.buckets[self.hash_key(key)]
