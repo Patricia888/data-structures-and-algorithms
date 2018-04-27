@@ -1,10 +1,6 @@
 from functools import reduce
 
 
-# scaffold for a hash table
-# will not handle collisions
-
-
 class HashTable:
     # allocated block of memory
     def __init__(self, max_size=1024):
