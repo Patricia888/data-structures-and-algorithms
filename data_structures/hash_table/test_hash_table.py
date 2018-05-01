@@ -10,7 +10,7 @@ def test_value_is_not_a_string():
 
 
 def test_hash_table_without_linked_list():
-    test = "cat"
+    assert HashTable.hash_key(HashTable, 'dog') == 3
 
 
 def test_hash_key():

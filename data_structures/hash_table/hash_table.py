@@ -3,7 +3,6 @@ from .linked_list import Node, LinkedList
 
 
 class HashTable:
-    # allocated block of memory
     def __init__(self, max_size=1024):
         # each element should be a linked list
         self.max_size = max_size
@@ -15,7 +14,6 @@ class HashTable:
 
         sum = 0
         for char in key:
-            # ord gets the integer value of each character
             sum += ord(char)
         return sum % self.buckets
 
@@ -33,11 +31,9 @@ class HashTable:
 
 
         # if no value is in that particular bucket, no worries about collisions
-        if self.buckets is None:
-            self.buckets[self.hash_key(key)] = val
+        self.buckets[self.hash_key(key)] = val
 
-        else:
-            # create a linked list for the bucket to deal with collisions
+        # create a linked list for the bucket to deal with collisions
 
     def get(self, key):
         return self.buckets[self.hash_key(key)]
