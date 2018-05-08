@@ -1,5 +1,5 @@
 import pytest
-from .selection_sort import selection_sort
+from .selection import selection_sort
 
 
 def test_selection_sort_example_from_merge_sort():
@@ -24,3 +24,9 @@ def test_selection_sort_all_negative_values():
     '''Test that it sorts properly when all values in list are negative.'''
     negative_value_list = [-5, -20, -70, -1, -4]
     assert selection_sort(negative_value_list) == [-70, -20, -5, -4, -1]
+
+
+def test_selection_sort_repeat_numbers_in_list():
+    ''' Tests it properly sorts when the inputted list has repeat values'''
+    repeat_number_list = [4, 4, 2, 9, 9, 4, 2, 1]
+    assert selection_sort(repeat_number_list) == [1, 2, 2, 4, 4, 4, 9, 9]
