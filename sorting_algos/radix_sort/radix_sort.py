@@ -1,4 +1,5 @@
 def radix_sort(lst, base=10):
+    """ Sorts by using the radix sort. This version only works with positive integers. Sorts by creating buckets and putting each number in to its corresponding bucket by looking at each consecutive digit."""
     if len(lst) < 2:
         return lst
     
