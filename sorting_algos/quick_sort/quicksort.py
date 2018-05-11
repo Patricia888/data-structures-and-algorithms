@@ -1,3 +1,7 @@
+def quicksort(lst):
+    if len(lst) < 2:
+        return lst
 
-def quicksort():
-    # magically sorts
+    else:
+
+
