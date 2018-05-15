@@ -3,46 +3,75 @@ from .linked_list import Node, LinkedList
 
 
 class HashTable:
+    """Hash table class."""
     def __init__(self, max_size=1024):
-        # each element should be a linked list
+        if type(max_size) is not int:
+            raise TypeError
         self.max_size = max_size
-        self.buckets = [None] * self.max_size
+        self.buckets = [LinkedList() for _ in range(self.max_size)]
+        
+        # [LinkedList()] * self.max_size
+        # LL() for _ in range(self.max_size)
 
     def hash_key(self, key):
+        """Hash key."""
         if type(key) is not str:
             raise TypeError
-
+        
         sum = 0
         for char in key:
             sum += ord(char)
-        return sum % self.buckets
+        return sum % len(self.buckets)
 
     def set(self, key, val):
-        # DO LATER: traverse the linked list
-        # set val into bucket
+        """Set new value in hash table."""
+        if type(key) is not str:
+            raise TypeError
 
-        # handle collisions
-        # your vals may look something like a db record:
-        #   {
-            # 'id': '123',
-            # 'name': 'xxx',    cat   act    => would cause a collision
-            # 'title': 'zzz',
-        # }
-
-
-        # if no value is in that particular bucket, no worries about collisions
-        self.buckets[self.hash_key(key)] = val
-
-        # create a linked list for the bucket to deal with collisions
+        self.buckets[self.hash_key(key)].insert({key: val})
+        self.buckets[self.hash_key(key)]._size += 1
 
     def get(self, key):
-        return self.buckets[self.hash_key(key)]
+        """Get value in hash table."""
+        if type(key) is not str:
+            raise TypeError
 
-    def remove(self, key):
-        temp = self.buckets[self.hash_key(key)]
-        self.buckets[self.hash_key(key)] = None
-        return temp
+        current = self.buckets[self.hash_key(key)].head
+        while current:
+            if key in current.val:
+                return current.val[key]
+            current = current._next
 
+        print('The key {} is not in this hash table'.format(key))
+        return False
 
-# set, get, and remove should have access to linked list methods
-# like get can use find
+    def remove(self, key='', all_or_none=None):
+        """
+        Remove value in hash table.
+        If user specifies 'all' in all_or_none, entire linked list will
+        be emptied.
+        """
+        if type(key) is not str:
+            raise TypeError
+        
+        if key == '':
+            print('To remove value or enite bucket, a value must be given')
+            raise TypeError
+        
+        if all_or_none == 'all':
+            self.buckets[self.hash_key(key)].head = None
+
+        current = self.buckets[self.hash_key(key)].head
+        previous = None
+        while current:
+            if key in current.val:
+                if previous is None:
+                    self.buckets[self.hash_key(key)].head = current._next
+                    return current.val[key]
+                else:
+                    previous._next = current._next
+                    return current.val[key]
+            previous = current
+            current = current._next
+        print('The key {} is not in this hash table'.format(key))
+        return False
