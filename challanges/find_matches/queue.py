@@ -1,8 +1,9 @@
-class Node:  # pragma: no cover
-    """Create a Node"""
-
+class Node:
+    """
+    defines node object
+    """
     def __init__(self, val, next=None):
-        """Constructor for the Node object"""
+        """initializes node with specific traits"""
         self.val = val
         self._next = next
         if val is None:
@@ -15,8 +16,8 @@ class Node:  # pragma: no cover
         return '{val}'.format(val=self.val)
 
 
-class Queue:  # pragma: no cover
-    """Create a Queue"""
+class Queue:
+    """ defines queue object"""
     def __init__(self, iterable=[]):
         self.front = None
         self.back = None
@@ -36,7 +37,7 @@ class Queue:  # pragma: no cover
         return self._size
 
     def enqueue(self, val):
-        """Insert a node to back"""
+        """Insert a node to back of queue"""
         try:
             node = Node(val)
         except TypeError:
@@ -51,7 +52,7 @@ class Queue:  # pragma: no cover
         return self.front
 
     def dequeue(self):
-        """Remove the node at front"""
+        """Remove the node at front of queue"""
         if self._size == 0:
             raise IndexError('List is empty')
         removed_node = self.front
